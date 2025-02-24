@@ -1,6 +1,7 @@
 // import React from "react";
 import { useState } from "react";
 import { FlatList, StyleSheet, View } from "react-native";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 import { friendProfiles, myProfile } from "../data";
 import Division from "../Division";
@@ -77,8 +78,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    justifyContent: "center",
-    alignItems: "center",
   },
 });
 
