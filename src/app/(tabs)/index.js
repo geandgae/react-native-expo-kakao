@@ -55,17 +55,21 @@ const HomeScreen = () => {
   const ListFooterComponent = () => <Margin height={10} />;
 
   return (
-    <FlatList
-      data={isOpened ? friendProfiles : []}
-      contentContainerStyle={{ paddingHorizontal: 15 }}
-      keyExtractor={(_, index) => index}
-      stickyHeaderIndices={[0]}
-      ItemSeparatorComponent={ItemSeparatorComponent}
-      renderItem={renderItem}
-      ListHeaderComponent={ListHeaderComponent}
-      ListFooterComponent={ListFooterComponent}
-      showsVerticalScrollIndicator={false}
-    />
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container} edges={["top", "right", "bottom", "left"]}>
+      <FlatList
+        data={isOpened ? friendProfiles : []}
+        contentContainerStyle={{ paddingHorizontal: 15 }}
+        keyExtractor={(_, index) => index}
+        stickyHeaderIndices={[0]}
+        ItemSeparatorComponent={ItemSeparatorComponent}
+        renderItem={renderItem}
+        ListHeaderComponent={ListHeaderComponent}
+        ListFooterComponent={ListFooterComponent}
+        showsVerticalScrollIndicator={false}
+      />
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
@@ -73,6 +77,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 
